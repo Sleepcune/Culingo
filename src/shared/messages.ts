@@ -1,0 +1,30 @@
+import type { ApiConfig, Backup, DictionaryEntry, DictionaryProgress, ImportPreview, PublicSettings, ReadingState, ReviewItem, SaveWord, Settings, Stats, TranslationResult, VocabularyDetail, WordStatus } from './types';
+export interface Methods {
+  'reading.state': { input: undefined; output: ReadingState };
+  'dictionary.lookup': { input: { word: string }; output: DictionaryEntry | null };
+  'dictionary.progress': { input: undefined; output: DictionaryProgress };
+  'dictionary.retry': { input: undefined; output: DictionaryProgress };
+  'dictionary.classify': { input: { words: string[] }; output: Record<string, boolean> };
+  'vocabulary.save': { input: SaveWord; output: VocabularyDetail };
+  'vocabulary.setStatus': { input: { word: string; status: WordStatus }; output: VocabularyDetail };
+  'vocabulary.setStatusById': { input: { id: string; status: WordStatus }; output: VocabularyDetail };
+  'vocabulary.edit': { input: { id: string; meaning: string }; output: VocabularyDetail };
+  'vocabulary.remove': { input: { ids: string[] }; output: undefined };
+  'vocabulary.list': { input: { search?: string; status?: WordStatus }; output: VocabularyDetail[] };
+  'translation.translate': { input: { text: string; requestId: string }; output: TranslationResult };
+  'translation.cancel': { input: { requestIds: string[] }; output: undefined };
+  'translation.test': { input: { api: ApiConfig }; output: string };
+  'review.getQueue': { input: undefined; output: ReviewItem[] };
+  'review.rate': { input: { vocabularyId: string; rating: 1 | 2 | 3 | 4; token: number; operationId: string }; output: Stats };
+  'stats.get': { input: undefined; output: Stats };
+  'settings.get': { input: undefined; output: Settings };
+  'settings.public': { input: undefined; output: PublicSettings };
+  'settings.update': { input: Partial<Settings>; output: Settings };
+  'backup.export': { input: undefined; output: Backup };
+  'backup.preview': { input: { text: string; format: 'json' | 'csv' }; output: ImportPreview };
+  'backup.import': { input: { backup: Backup }; output: Stats };
+  'diagnostics.get': { input: undefined; output: { at: number; code: string; duration?: number }[] };
+}
+export type Method = keyof Methods;
+export type Request<M extends Method = Method> = M extends Method ? { channel: 'culingo'; method: M; input: Methods[M]['input'] } : never;
+export type Response<T> = { ok: true; data: T } | { ok: false; error: string; code: string };

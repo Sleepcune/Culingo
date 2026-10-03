@@ -1,0 +1,9 @@
+node_modules/
+.output/
+.wxt/
+test-results/
+playwright-report/
+data/source/
+.venv/
+*.local
+.cache/
