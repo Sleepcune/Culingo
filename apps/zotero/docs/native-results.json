@@ -1,0 +1,54 @@
+{
+  "completedAt": "2026-10-03T09:46:50.929Z",
+  "results": [
+    {
+      "phase": "initial",
+      "ok": true,
+      "checks": [
+        "isolated Zotero 10.0.5 profile",
+        "offline dictionary ready",
+        "native PDF text and positions",
+        "native nonblocking overlay, actual mouse hover and isolated lookup card",
+        "native zoom and rotation keep overlay coordinates aligned",
+        "atomic save, review deduplication, backup and restore",
+        "native login manager and secret separation",
+        "native mock API, translation cache, attached-PDF sidebar, bilingual cleanup and source jump",
+        "native React learning center",
+        "cleanup preserves PDF text"
+      ],
+      "timings": {
+        "lookupMs": 7
+      },
+      "zotero": "10.0.5",
+      "os": "WINNT"
+    },
+    {
+      "phase": "restart",
+      "ok": true,
+      "checks": [
+        "isolated Zotero 10.0.5 profile",
+        "offline dictionary ready",
+        "vocabulary, example, review and preferences survive native restart"
+      ],
+      "timings": {
+        "lookupMs": 8
+      },
+      "zotero": "10.0.5",
+      "os": "WINNT"
+    },
+    {
+      "phase": "restore",
+      "ok": true,
+      "checks": [
+        "isolated Zotero 10.0.5 profile",
+        "offline dictionary ready",
+        "JSON restores full learning state in a clean native profile; missing attachment is retained"
+      ],
+      "timings": {
+        "lookupMs": 2
+      },
+      "zotero": "10.0.5",
+      "os": "WINNT"
+    }
+  ]
+}

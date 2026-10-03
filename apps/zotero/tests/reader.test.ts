@@ -1,0 +1,9 @@
+import {describe,it,expect} from 'vitest';
+import {pageText,wordsFromPage,toViewportRect,hitWord,type PDFChar} from '../src/reader/geometry';
+const chars=(text:string,y=50):PDFChar[]=>Array.from(text,(c,i)=>({c,u:c,rect:[i*5,y,i*5+5,y+10] as [number,number,number,number]}));
+describe('PDF text and positions',()=>{
+ it('maps word positions without modifying original text',()=>{const data=chars('An extraordinary result.');const page=pageText(data);const words=wordsFromPage(page,{ranks:{extraordinary:9000},forms:{}});expect(words.find(w=>w.word==='extraordinary')?.rects).toEqual([[15,50,80,60]]);expect(words.find(w=>w.word==='extraordinary')?.sentence).toBe('An extraordinary result.');});
+ it('joins a cross-line hyphen only with dictionary confirmation and retains both rectangles',()=>{const first=chars('extra-');first.at(-1)!.lineBreakAfter=true;const second=chars('ordinary result.',30);const page=pageText([...first,...second]);const words=wordsFromPage(page,{ranks:{extraordinary:9000},forms:{}});expect(words[0].word).toBe('extraordinary');expect(words[0].rects).toHaveLength(2);const unknown=wordsFromPage(page,{ranks:{},forms:{}});expect(unknown[0].word).toBe('extra');});
+ it('uses structured paragraph breaks to preserve columns',()=>{const a=chars('Left column.');a.at(-1)!.paragraphBreakAfter=true;const p=pageText([...a,...chars('Right column.',20)]);expect(p.blocks.map(b=>b.text)).toEqual(['Left column.','Right column.']);});
+ it('transforms and hits rotated/scaled word rectangles',()=>{const r=toViewportRect([10,20,30,40],{convertToViewportPoint:(x:number,y:number)=>[y*2,100-x*2]});expect(r).toEqual([40,40,80,80]);expect(hitWord([{word:'test',rects:[r],sentence:'test',start:0,end:4}],70,60)?.word).toBe('test');expect(hitWord([{word:'test',rects:[r],sentence:'test',start:0,end:4}],90,60)).toBeUndefined();});
+});

@@ -1,0 +1,1 @@
+{"manifest_version":2,"name":"CuLingo for Zotero","version":"0.1.0","description":"本地生词学习、PDF 双语阅读与闪卡复习","author":"CuLingo","icons":{"48":"icon.png"},"applications":{"zotero":{"id":"culingo-zotero@culingo.local","update_url":"https://updates.culingo.invalid/zotero.json","strict_min_version":"10.0.5","strict_max_version":"10.0.*"}}}

@@ -1,0 +1,109 @@
+{
+  "version": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+  "source": "https://github.com/skywind3000/ECDICT/tree/bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+  "sourceSha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf",
+  "indexSha256": "948eb2ad718ba04f16b75487515d8398c27bbc151ac15fdca8ccfa49d5db4164",
+  "count": 57829,
+  "chunks": [
+    {
+      "file": "chunk-000.json",
+      "count": 3000,
+      "sha256": "2988aa18d9f160bbd2583e2c258a47c173864b97e3db8626ce8d9b58617b27ab"
+    },
+    {
+      "file": "chunk-001.json",
+      "count": 3000,
+      "sha256": "cae2319dc2d2e952079782bd9f9aa932adc40f8a14627e1621ba842cdbccca9b"
+    },
+    {
+      "file": "chunk-002.json",
+      "count": 3000,
+      "sha256": "3aa4817dd49a2338fc05a582a1ec9ba1945498b991a59455b4eb97bb97663973"
+    },
+    {
+      "file": "chunk-003.json",
+      "count": 3000,
+      "sha256": "10c22702063b803478f8059e0b5f1ed8b66ee19a8a153107a530d2d19a797b26"
+    },
+    {
+      "file": "chunk-004.json",
+      "count": 3000,
+      "sha256": "8cedad12e2658e286afcfde808a74bbd810d2ed4f598a8cf70ec62f44f291362"
+    },
+    {
+      "file": "chunk-005.json",
+      "count": 3000,
+      "sha256": "21fe77f226bcc18c70cf8183da2eb7109504f4afa500e3b84b776539892f0a0c"
+    },
+    {
+      "file": "chunk-006.json",
+      "count": 3000,
+      "sha256": "4594b91c1486f79525b777f4b000e98898ecd51b52b902b0b96e795f54f8d089"
+    },
+    {
+      "file": "chunk-007.json",
+      "count": 3000,
+      "sha256": "456ad766c0362146fe3d8fbe0638f1995996d5b085e871f90ff96fdd7aa4b1b5"
+    },
+    {
+      "file": "chunk-008.json",
+      "count": 3000,
+      "sha256": "4e435daed1eae7bda72f2d6e0c383564c052617291268a1dc5fcc281adaed12d"
+    },
+    {
+      "file": "chunk-009.json",
+      "count": 3000,
+      "sha256": "14ede65558d0e35e08f38812d184f19e8b7c8aa2cd7466d645df8c55e50ff69e"
+    },
+    {
+      "file": "chunk-010.json",
+      "count": 3000,
+      "sha256": "ab4db3ada8d8546e8721bb4e37af649effee5f17ae6eee5653eb1cc2d4d16677"
+    },
+    {
+      "file": "chunk-011.json",
+      "count": 3000,
+      "sha256": "09c692157407f74fd9758317772f4663c8bd650ef221de9084d5c479b29e6295"
+    },
+    {
+      "file": "chunk-012.json",
+      "count": 3000,
+      "sha256": "daafbf201399b220aa2a9f3e1e9def29255b545956397237294b40f608441beb"
+    },
+    {
+      "file": "chunk-013.json",
+      "count": 3000,
+      "sha256": "925634ececbe44ed10da4214758e4389b8b7ce3b0365a8479461076f30dd349f"
+    },
+    {
+      "file": "chunk-014.json",
+      "count": 3000,
+      "sha256": "14920fc2b6218b3e1e6dccec72d56d2b3ceab5334d96314048ae8046b857a698"
+    },
+    {
+      "file": "chunk-015.json",
+      "count": 3000,
+      "sha256": "cc92fec34d675957c4037f68a50886c9dff2225502ff22c9d029a81df837476e"
+    },
+    {
+      "file": "chunk-016.json",
+      "count": 3000,
+      "sha256": "c78dcdeb24f30af2f5dd880fb45e5cedae1c52be1d751c7a29cde4420e2db29c"
+    },
+    {
+      "file": "chunk-017.json",
+      "count": 3000,
+      "sha256": "b4cab3b5d0e6b3d1481a0793eda869756f1dff404630a59e770dcbcf7f17cf45"
+    },
+    {
+      "file": "chunk-018.json",
+      "count": 3000,
+      "sha256": "77544873a9d43c69178b322c9591d997598b55bbee4cf4ebd73a465cdc927d13"
+    },
+    {
+      "file": "chunk-019.json",
+      "count": 829,
+      "sha256": "a8d7edc5dfc26b2775f4e8dfe01f3d9f5e37149eb49a1e3da76d7b09df5cddca"
+    }
+  ]
+}
