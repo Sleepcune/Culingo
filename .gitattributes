@@ -1,0 +1,4 @@
+* text=auto
+# Packaged dictionary hashes must remain identical across checkouts on all OSes.
+public/dictionary/*.json -text
+public/icon/*.png binary
