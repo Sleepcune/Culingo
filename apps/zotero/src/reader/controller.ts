@@ -22,7 +22,7 @@ export class ReaderController {
   try{const settings=await this.service.settings.getPublic();const statuses=await this.service.vocabulary.statuses();const visible=this.adapter.visiblePages();const indices=[...new Set(visible.flatMap(i=>[i,i-1,i+1]))].filter(i=>i>=0&&i<this.adapter.pageCount).slice(0,8);
    for(const [index,overlay]of this.overlays)if(!indices.includes(index)||!settings.enabled){overlay.element.remove();this.overlays.delete(index);}
    for(const index of indices){if(this.closed)break;const page=await this.adapter.loadPage(index);if(this.closed)break;
-    if(settings.enabled&&page.element?.isConnected){const highlighted=page.words.filter(w=>shouldHighlight(w.word,this.adapter.index,statuses,settings.level));await this.draw(page,highlighted,statuses);}
+    if(settings.enabled&&page.element?.isConnected){const highlighted=page.words.filter(w=>!w.mathLike&&shouldHighlight(w.word,this.adapter.index,statuses,settings.level));await this.draw(page,highlighted,statuses);}
     if(this.bilingual&&visible.includes(index))void this.translatePage(page);
    }if(this.bilingual&&!visible.some(i=>this.overlays.get(i)?.page.text.text)&&visible.length){const page=await this.adapter.loadPage(visible[0]);if(!page.text.text.trim()){this.error='此页没有可提取文字，首版不支持扫描件 OCR。';this.changed();}}
   }finally{this.scanning=false;if(this.retryScan){this.retryScan=false;this.schedule();}}
