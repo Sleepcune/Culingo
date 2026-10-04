@@ -10,6 +10,10 @@ export function shouldHighlight(text: string, index: WordIndex, statuses: Record
   const word = lemma(text, index);
   const status=wordStatus(text,index,statuses);
   if (status === 'mastered') return false;
+  // Single-letter PDF tokens are usually mathematical variables. Keep the
+  // ordinary one-letter English words available for learning.
+  const surface=normalizeWord(text);
+  if (surface.length===1&&!/^[ai]$/.test(surface)) return false;
   if (status === 'learning') return true;
   const rank = index.ranks[word] ?? 0;
   return rank > level;
