@@ -1,0 +1,12 @@
+[
+  {"word":"chirrup","phonetic":"ˈtʃɪrəp","definition":"a short high-pitched sound made by a bird or insect; to make such a sound","translation":"（鸟或昆虫）啾啾声；啾啾地叫","pos":"n.; v."},
+  {"word":"chirr","phonetic":"tʃɜːr","definition":"a rhythmic high-pitched sound, especially that made by an insect","translation":"（昆虫发出的）唧唧声；发出唧唧声","pos":"n.; v."},
+  {"word":"skirl","phonetic":"skɜːl","definition":"a loud, shrill, piercing sound; to make such a sound","translation":"尖锐刺耳的声音；发出尖锐声","pos":"n.; v."},
+  {"word":"susurrus","phonetic":"suːˈsʌrəs","definition":"a whispering or rustling sound","translation":"窸窣声；低语声","pos":"n."},
+  {"word":"sough","phonetic":"saʊ","definition":"a moaning, murmuring, or whistling sound","translation":"（风或海浪的）呜咽声；飒飒声","pos":"n.; v."},
+  {"word":"ululate","phonetic":"ˈʌljʊleɪt","definition":"to howl, wail, or lament loudly","translation":"嚎叫；哀号；高声悲鸣","pos":"v."},
+  {"word":"peregrine","phonetic":"ˈperɪɡrɪn","definition":"a peregrine falcon; wandering or traveling","translation":"游隼；游历的；流浪的","pos":"n.; adj."},
+  {"word":"mellifluous","phonetic":"məˈlɪfluəs","definition":"pleasantly smooth and musical to hear","translation":"悦耳的；流畅动听的","pos":"adj."},
+  {"word":"susurrant","phonetic":"ˈsuːsərənt","definition":"murmuring or whispering softly","translation":"发出窸窣声的；低语的","pos":"adj."},
+  {"word":"threnody","phonetic":"ˈθrenədi","definition":"a song, poem, or speech of mourning","translation":"挽歌；哀歌；悼词","pos":"n."}
+]

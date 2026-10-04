@@ -50,6 +50,8 @@ export class TranslationService {
       const cached=await this.db.cache.get(key);
       if(cached){if(consumer.signal.aborted)throw new Error('翻译已取消。');await this.db.cache.update(key,{accessedAt:Date.now()});return {text:cached.text,cached:true};}
       task=this.tasks.get(key);
+      // A late consumer must not attach to a shared task that another consumer has just cancelled.
+      if(task?.controller.signal.aborted)task=undefined;
       if(!task) {
         const controller=new AbortController();const created:Task={controller,consumers:new Set(),done:false,promise:Promise.resolve({text:'',cached:false})};
         created.promise=this.perform(text,api,controller.signal).then(async translation=>{

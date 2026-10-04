@@ -16,3 +16,17 @@ it('keeps the lookup card inside the viewport after async dictionary content gro
   expect(parseFloat(panel.style.left)).toBe(170);expect(parseFloat(panel.style.top)).toBe(68);
   card.destroy();
 });
+
+it('can generate a formatted AI meaning for a missing word and saves it when collected',async()=>{
+  vi.stubGlobal('innerWidth',800);vi.stubGlobal('innerHeight',600);vi.stubGlobal('crypto',{randomUUID:()=>`request-${Date.now()}`});
+  rpc.mockImplementation(async(method:string)=>method==='dictionary.lookup'?null:method==='translation.translate'?{text:'啾啾声；啾啾地叫',cached:false}:method==='vocabulary.save'?{}:undefined);
+  const card=new ReadingCard(()=>({theme:'system',apiConfigured:true} as any),()=>{},async()=>{});
+  await card.show({text:'chirrup',sentence:'A chirrup sounded nearby.',x:100,y:100});
+  const buttons=[...card.root.querySelectorAll('button')];
+  buttons.find(button=>button.textContent==='AI 释义')?.click();
+  await new Promise(resolve=>setTimeout(resolve,0));
+  buttons.find(button=>button.textContent?.includes('收藏'))?.click();
+  await new Promise(resolve=>setTimeout(resolve,0));
+  expect(rpc).toHaveBeenCalledWith('vocabulary.save',expect.objectContaining({meaning:'AI 中文释义：啾啾声；啾啾地叫'}));
+  card.destroy();
+});

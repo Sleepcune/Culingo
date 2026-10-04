@@ -53,10 +53,11 @@ export class ReadingCard {
       try{entry=await rpc('dictionary.lookup',{word:context.text});if(generation!==this.generation)return;meaning.textContent=entry?.translation||entry?.definition||'本地词典未收录这个词，可翻译当前句子或手动收藏。';if(entry?.phonetic||entry?.pos)this.panel.insertBefore(this.el('div','phonetic',[entry?.phonetic&&`/${entry.phonetic}/`,entry?.pos].filter(Boolean).join(' · ')),meaning);this.reflow();}
       catch(e){if(generation!==this.generation)return;meaning.textContent=e instanceof Error?e.message:'查词失败。';this.reflow();}
     } else meaning.textContent='点击翻译，查看短语或句子的中文含义。';
-    const definition=entry?.translation??'';let sentenceTranslation:string|undefined;
+    let definition=entry?.translation??'';let aiMeaning='';let sentenceTranslation:string|undefined;
     const save=this.button('＋ 收藏',async()=>{
-      await rpc('vocabulary.save',{word:context.text,meaning:definition,phonetic:entry?.phonetic,example:{text:context.sentence,translation:sentenceTranslation,url:location.href,title:document.title}});if(generation===this.generation)this.message('已保存到生词本，例句一并保留。');
+      await rpc('vocabulary.save',{word:context.text,meaning:aiMeaning||definition,phonetic:entry?.phonetic,example:{text:context.sentence,translation:sentenceTranslation,url:location.href,title:document.title}});if(generation===this.generation)this.message('已保存到生词本，例句一并保留。');
     },true);save.disabled=context.text.length>200;actions.append(save);
+    if(single&&!entry)actions.append(this.button('AI 释义',async()=>{if(!this.settings().apiConfigured)throw new Error('请先在扩展设置中配置翻译服务。');const result=await this.translate(context.text);if(generation!==this.generation)return;aiMeaning=`AI 中文释义：${result.text.trim()}`;definition=aiMeaning;meaning.textContent=aiMeaning;this.message('AI 释义已生成，点击收藏后会保存到生词本。');}));
     if(context.text.length<=200)actions.append(this.button('已掌握',async()=>{await rpc('vocabulary.setStatus',{word:context.text,status:'mastered'});if(generation===this.generation)this.message('已掌握，此词不再自动高亮。');}));
     actions.append(this.button('发音',()=>{
       if(!('speechSynthesis' in window))throw new Error('此浏览器不支持语音。');const voices=speechSynthesis.getVoices().filter(v=>/^en[-_]/i.test(v.lang));if(!voices.length)throw new Error('系统没有可用英语语音，请安装英语语音包。');

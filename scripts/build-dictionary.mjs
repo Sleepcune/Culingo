@@ -1,8 +1,8 @@
 import { createReadStream } from 'node:fs';
-import { mkdir, readFile, writeFile, copyFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile, copyFile, readdir, unlink } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { parse } from 'csv-parse';
-const revision = 'bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b';
+const revision = 'bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b-r1';
 const folder = new URL('../public/dictionary/', import.meta.url);
 await mkdir(folder, { recursive: true });
 const records = new Map(); const forms = {};
@@ -17,6 +17,8 @@ for await (const row of input) {
     for (const form of (value || '').split(',')) if (/^[a-z]+(?:['-][a-z]+)*$/.test(form)) { const previous = forms[form]; if (!previous || rank < (records.get(previous)?.rank || 100001)) forms[form] = word; }
   }
 }
+const extras = JSON.parse(await readFile(new URL('../data/dictionary-extra.json', import.meta.url), 'utf8'));
+for (const entry of extras) if (/^[a-z]+(?:['-][a-z]+)*$/.test(entry.word) && !records.has(entry.word)) records.set(entry.word, { word: entry.word, rank: 0, phonetic: entry.phonetic || '', definition: entry.definition || '', translation: entry.translation || '', pos: entry.pos || '' });
 // Explicit lemma fields take precedence over generated inflections.
 const lemmas = createReadStream(new URL('../data/source/ecdict.csv', import.meta.url)).pipe(parse({ columns:true,bom:true,relax_quotes:true }));
 for await(const row of lemmas) {
@@ -27,6 +29,7 @@ const entries = [...records.values()].sort((a,b)=>a.word.localeCompare(b.word));
 for(const form of Object.keys(forms)) if(!records.has(forms[form])) delete forms[form];
 const indexText = JSON.stringify({ranks, forms});
 await writeFile(new URL('index.json',folder),indexText);
+for (const file of await readdir(folder)) if (/^chunk-\d+\.json$/.test(file)) await unlink(new URL(file, folder));
 const chunks=[];
 for(let i=0;i<entries.length;i+=3000) { const file=`chunk-${String(chunks.length).padStart(3,'0')}.json`; const text=JSON.stringify(entries.slice(i,i+3000));await writeFile(new URL(file,folder),text);chunks.push({file,count:Math.min(3000,entries.length-i),sha256:createHash('sha256').update(text).digest('hex')}); }
 const sourceHash=createHash('sha256').update(await readFile(new URL('../data/source/ecdict.csv',import.meta.url))).digest('hex');

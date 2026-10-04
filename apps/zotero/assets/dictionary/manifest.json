@@ -1,9 +1,9 @@
 {
-  "version": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
-  "source": "https://github.com/skywind3000/ECDICT/tree/bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b",
+  "version": "bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b-r1",
+  "source": "https://github.com/skywind3000/ECDICT/tree/bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b-r1",
   "sourceSha256": "1a6947e04785db63613a92e14903cdae7954f7e84860b10e68e5c7cbb3f9c3cf",
-  "indexSha256": "948eb2ad718ba04f16b75487515d8398c27bbc151ac15fdca8ccfa49d5db4164",
-  "count": 57829,
+  "indexSha256": "16ad29c94b4dc86b3b24f5b8c5ddbbbf586ce98482b1b25a29f59aeb52ffdc40",
+  "count": 57833,
   "chunks": [
     {
       "file": "chunk-000.json",
@@ -18,92 +18,92 @@
     {
       "file": "chunk-002.json",
       "count": 3000,
-      "sha256": "3aa4817dd49a2338fc05a582a1ec9ba1945498b991a59455b4eb97bb97663973"
+      "sha256": "298b9cfeb827e847e1b1af9a98ef08b36da26ec39301d803697f3edfae406619"
     },
     {
       "file": "chunk-003.json",
       "count": 3000,
-      "sha256": "10c22702063b803478f8059e0b5f1ed8b66ee19a8a153107a530d2d19a797b26"
+      "sha256": "d629451386c95fc3fed109a0d89d810f5e5ea9147c7823f807dc38da2b9654fe"
     },
     {
       "file": "chunk-004.json",
       "count": 3000,
-      "sha256": "8cedad12e2658e286afcfde808a74bbd810d2ed4f598a8cf70ec62f44f291362"
+      "sha256": "d59011715af6c6103208db54223b0c62a4bed1599de823c87e907c5eb3b09ce5"
     },
     {
       "file": "chunk-005.json",
       "count": 3000,
-      "sha256": "21fe77f226bcc18c70cf8183da2eb7109504f4afa500e3b84b776539892f0a0c"
+      "sha256": "0889364af00c2d151329586ca812aa7b0b5efb91a1892d09ba9c2c8a628aa084"
     },
     {
       "file": "chunk-006.json",
       "count": 3000,
-      "sha256": "4594b91c1486f79525b777f4b000e98898ecd51b52b902b0b96e795f54f8d089"
+      "sha256": "c903fddfeed6a11a04a0c43119bce9a6f17bdc6611556e4fa492acef87ae858d"
     },
     {
       "file": "chunk-007.json",
       "count": 3000,
-      "sha256": "456ad766c0362146fe3d8fbe0638f1995996d5b085e871f90ff96fdd7aa4b1b5"
+      "sha256": "e8023ce65356f88d199212b13a49ad4ee47f0bba6b960f7fd3a4b13d6cc8cf08"
     },
     {
       "file": "chunk-008.json",
       "count": 3000,
-      "sha256": "4e435daed1eae7bda72f2d6e0c383564c052617291268a1dc5fcc281adaed12d"
+      "sha256": "ee9b6817c3bebe669dfee84f535651e3fbf7cf1bbc5b427ba773a9a75c7227d3"
     },
     {
       "file": "chunk-009.json",
       "count": 3000,
-      "sha256": "14ede65558d0e35e08f38812d184f19e8b7c8aa2cd7466d645df8c55e50ff69e"
+      "sha256": "f243e884778bcd58a0afdd5235a085c6dc1b5a745bdf70834c46197663a0a6ee"
     },
     {
       "file": "chunk-010.json",
       "count": 3000,
-      "sha256": "ab4db3ada8d8546e8721bb4e37af649effee5f17ae6eee5653eb1cc2d4d16677"
+      "sha256": "fb4f2d476353930e90e4f1e22d355f3037ef5ec45eb1c64d79b7b70a343d3bf0"
     },
     {
       "file": "chunk-011.json",
       "count": 3000,
-      "sha256": "09c692157407f74fd9758317772f4663c8bd650ef221de9084d5c479b29e6295"
+      "sha256": "4cb98643c8babf7f0b4bf64bee13dfe800deed42f8d277948b600291a3b5d3b1"
     },
     {
       "file": "chunk-012.json",
       "count": 3000,
-      "sha256": "daafbf201399b220aa2a9f3e1e9def29255b545956397237294b40f608441beb"
+      "sha256": "378f572c98555a8d9043c37705d065850232a7fc0f73c1bf95c71bb469dac480"
     },
     {
       "file": "chunk-013.json",
       "count": 3000,
-      "sha256": "925634ececbe44ed10da4214758e4389b8b7ce3b0365a8479461076f30dd349f"
+      "sha256": "2ca2925989fe592376ba8442b1a72aa216e25b4fe44e3db62377daaef93c5127"
     },
     {
       "file": "chunk-014.json",
       "count": 3000,
-      "sha256": "14920fc2b6218b3e1e6dccec72d56d2b3ceab5334d96314048ae8046b857a698"
+      "sha256": "6d727970385236b625f3d57571ae9d6075dfc11d7422373f09ab425960436488"
     },
     {
       "file": "chunk-015.json",
       "count": 3000,
-      "sha256": "cc92fec34d675957c4037f68a50886c9dff2225502ff22c9d029a81df837476e"
+      "sha256": "6c78497abea3d7467d6df33d0cedeb0d0312b643da9faf02c98c4302edd3697a"
     },
     {
       "file": "chunk-016.json",
       "count": 3000,
-      "sha256": "c78dcdeb24f30af2f5dd880fb45e5cedae1c52be1d751c7a29cde4420e2db29c"
+      "sha256": "1677f3c4a9fda59ee434275c7f32fbeb869d5fb9736d4bda43a0e216ca9f4440"
     },
     {
       "file": "chunk-017.json",
       "count": 3000,
-      "sha256": "b4cab3b5d0e6b3d1481a0793eda869756f1dff404630a59e770dcbcf7f17cf45"
+      "sha256": "8ff6c35e9fce0ae1a305a5b01d6f23ac242d1b6b35d436fbd34de729f8a97cf1"
     },
     {
       "file": "chunk-018.json",
       "count": 3000,
-      "sha256": "77544873a9d43c69178b322c9591d997598b55bbee4cf4ebd73a465cdc927d13"
+      "sha256": "00ce8d972c121d538cae2f523c5eefaaee60ca876dfe6ab7755032e91565bd30"
     },
     {
       "file": "chunk-019.json",
-      "count": 829,
-      "sha256": "a8d7edc5dfc26b2775f4e8dfe01f3d9f5e37149eb49a1e3da76d7b09df5cddca"
+      "count": 833,
+      "sha256": "ac05b68bf853ad70ea15e19a4f59223c4f53dd7c4a80a72b1b94eee280dbe8bd"
     }
   ]
 }

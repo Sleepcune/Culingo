@@ -20,7 +20,7 @@
 - 收藏时保存页面标题、地址和当前例句。已掌握的词不再自动高亮，并暂停复习；恢复学习保留原复习进度。
 - 划选单词、短语或句子后，点击出现的“查词 / 翻译”。短语可以收藏，最长 200 字符；更长文本只能翻译。
 - 词频档位为 3000 / 5000 / 8000。它们是阅读提示强度，不是英语水平测评。
-- 本地词典未收录的词可手动收藏并编辑释义。单词卡的句子翻译与词典释义分开；翻译句子后再次收藏可保存其译文。
+- 本地词典未收录的词可手动收藏并编辑释义；单词卡也提供“AI 释义”，需要先配置翻译服务，生成的“AI 中文释义：…”只有在点击收藏后才会写入生词本。单词卡的句子翻译与词典释义分开；翻译句子后再次收藏可保存其译文。
 - 输入框、编辑器、代码块和隐藏区域不自动扫描；跨域 iframe、封闭 Shadow DOM、PDF 与浏览器内置页不支持自动高亮。
 
 发音使用系统英语语音。缺少语音时安装系统英语语音包；语音是否完全离线取决于系统提供的语音。
@@ -71,7 +71,7 @@ npm run zip
 
 `npm run dev` 开启开发构建。`npm run browser:install` 将测试 Chromium 安装到项目 `.cache/playwright`，然后运行 `npm run test:e2e`。
 
-词库已经生成并随扩展打包。重新生成时，把固定版本 ECDICT 的 `ecdict.csv` 和 `LICENSE` 放入 `data/source`，运行 `npm run dictionary`。来源版本见 `public/dictionary/manifest.json`，构建脚本见 `scripts/build-dictionary.mjs`。如果添加 Python 数据处理脚本，使用项目本地 uv `.venv`。
+词库已经生成并随扩展打包。重新生成时，把固定版本 ECDICT 的 `ecdict.csv` 和 `LICENSE` 放入 `data/source`，运行 `npm run dictionary`。`data/dictionary-extra.json` 保存少量低频补充词条；这些词可离线查询但不会因为词频为 0 自动高亮。来源版本见 `public/dictionary/manifest.json`，构建脚本见 `scripts/build-dictionary.mjs`。如果添加 Python 数据处理脚本，使用项目本地 uv `.venv`。
 
 ## 数据与权限
 
@@ -89,7 +89,7 @@ Edge 实机、真实翻译供应商、复杂网站及连续一周日常使用需
 
 ## 词库来源
 
-ECDICT 固定版本 `bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b`，保留有效词频排名 100000 以内及考试标记的英语词条，共 57,829 个词条、39,833 个词形映射。词频优先 `frq`，缺失时采用 `bnc`。保留完整释义和原始字段中的换行。
+ECDICT 固定版本 `bc015ed2e24a7abef49fc6dbbb7fe32c1dadaf8b`，保留有效词频排名 100000 以内及考试标记的英语词条，并加入 `data/dictionary-extra.json` 中的补充条目；当前共 57,833 个词条、39,835 个词形映射。词频优先 `frq`，缺失时采用 `bnc`。补充条目没有词频，因此只用于查词，不参与自动高亮。
 
 来源：https://github.com/skywind3000/ECDICT
 
