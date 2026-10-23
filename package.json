@@ -1,6 +1,18 @@
 {
-  "name": "culingo", "version": "0.1.0", "private": true, "type": "module",
-  "scripts": { "dev": "wxt", "build": "wxt build", "zip": "wxt zip", "typecheck": "tsc --noEmit", "test": "vitest run", "test:e2e": "playwright test", "browser:install": "node scripts/install-browser.mjs", "prepare": "wxt prepare", "dictionary": "node scripts/build-dictionary.mjs", "icons": "node scripts/build-icons.mjs" },
-  "dependencies": { "dexie": "^4.0.11", "react": "^19.0.0", "react-dom": "^19.0.0", "ts-fsrs": "^5.2.0", "zod": "^3.24.2" },
-  "devDependencies": { "@playwright/test": "^1.51.1", "@types/node": "^22.13.10", "@types/react": "^19.0.10", "@types/react-dom": "^19.0.4", "@wxt-dev/module-react": "^1.1.3", "csv-parse": "^5.6.0", "fake-indexeddb": "^6.0.0", "jsdom": "^26.0.0", "typescript": "^5.7.3", "vitest": "^3.0.8", "wxt": "^0.20.0" }
+  "name": "culingo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "build": "npm run build --workspaces --if-present",
+    "typecheck:browser": "npm run typecheck --workspace @culingo/browser-extension",
+    "test:browser": "npm run test --workspace @culingo/browser-extension",
+    "build:browser": "npm run build --workspace @culingo/browser-extension",
+    "typecheck:zotero": "npm run typecheck --workspace @culingo/zotero-plugin",
+    "test:zotero": "npm run test --workspace @culingo/zotero-plugin",
+    "build:zotero": "npm run build --workspace @culingo/zotero-plugin"
+  }
 }

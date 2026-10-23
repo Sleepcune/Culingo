@@ -1,1 +1,3 @@
-{ "extends": "./.wxt/tsconfig.json", "compilerOptions": { "strict": true, "jsx": "react-jsx", "noUncheckedIndexedAccess": true, "types": ["node", "vitest/globals"] }, "exclude": ["apps/zotero"] }
+{
+  "files": []
+}
