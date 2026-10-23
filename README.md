@@ -46,3 +46,4 @@ AI word translations are saved locally as a per-word meaning override. Reopening
 ## Historical planning documents
 
 `docs/plans/2026-10-03-zotero-shared-learning-plan.md` is retained as a historical proposal. It describes a possible local service and unified database that are **not implemented by this repository state**. The implemented boundaries are documented in `docs/ARCHITECTURE.md`.
+
